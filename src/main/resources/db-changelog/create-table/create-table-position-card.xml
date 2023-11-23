@@ -5,14 +5,14 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
             http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd"
 >
-    <changeSet id="create-table-position-cards" author="Sergei">
+    <changeSet id="create-table-position-card" author="Sergei">
         <preConditions>
             <not>
-                <tableExists tableName="position_cards"/>
+                <tableExists tableName="position_card"/>
             </not>
         </preConditions>
 
-        <createTable tableName="position_cards">
+        <createTable tableName="position_card">
             <column name="id" type="VARCHAR(200)">
                 <constraints primaryKey="true"/>
             </column>
@@ -27,10 +27,10 @@
         </createTable>
 
         <addForeignKeyConstraint baseColumnNames="group_id"
-                                 baseTableName="position_cards"
-                                 constraintName="fk_position_cards_group_id"
+                                 baseTableName="position_card"
+                                 constraintName="fk_position_card_group_id"
                                  referencedColumnNames="group_id"
-                                 referencedTableName="groups"/>
+                                 referencedTableName="group"/>
     </changeSet>
 
 </databaseChangeLog>

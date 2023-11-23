@@ -5,10 +5,11 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
 
-    <include file="/db-changelog/create-table/create-table-groups.xml"/>
-    <include file="/db-changelog/create-table/create-table-position-cards.xml"/>
-    <include file="/db-changelog/insert-into/insert-into-groups.xml"/>
-    <include file="/db-changelog/insert-into/insert-into-position-cards.xml"/>
+    <include file="src/main/resources/db-changelog/create-table/create-table-group.xml"/>
+    <include file="src/main/resources/db-changelog/create-table/create-table-position-card.xml"/>
+             <!--relativeToChangelogFile="true"/-->
+    <include file="src/main/resources/db-changelog/insert-into/insert-into-group.xml"/>
+    <include file="src/main/resources/db-changelog/insert-into/insert-into-position-card.xml"/>
 
 </databaseChangeLog>
 

@@ -11,7 +11,7 @@
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
-        <liquibase.version>4.25.0</liquibase.version>
+        <liquibase.version>3.2.1</liquibase.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <liquibase.properties.path>liquibase.properties</liquibase.properties.path>
     </properties>
@@ -45,13 +45,12 @@
                         <phase>process-classes</phase>
                         <configuration>
                             <propertyFile>${liquibase.properties.path}</propertyFile>
-                            <changeLogFile>src/main/resources/db-changelog/db-changelog-master.xml</changeLogFile>
-                            <!--changeLogFile>db-changelog/db-changelog-master.xml</changeLogFile-->
+                            <changeLogFile>src/main/resources/db-changelog-master.xml</changeLogFile>
                             <promptOnNonLocalDatabase>false</promptOnNonLocalDatabase>
                             <clearCheckSums>true</clearCheckSums>
                         </configuration>
                         <goals>
-                            <goal>validate</goal>
+                            <goal>update</goal>
                         </goals>
                     </execution>
                 </executions>
