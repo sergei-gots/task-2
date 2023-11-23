@@ -5,19 +5,26 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
             http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd"
 >
-    <changeSet id="insert-into-position-card" author="Sergei">
+    <changeSet id="insert-into-position-cards" author="Sergei">
 
-        <insert tableName="position_card">
+        <insert tableName="position_cards">
             <column name="id"               value="1"/>
             <column name="is_shown_in_app"  value="true"/>
             <column name="name"             value="Vacuum-Cleaner"/>
             <column name="group_id"         value="Hoovers"/>
         </insert>
 
-        <insert tableName="position_card">
+        <insert tableName="position_cards">
             <column name="id"               value="2"/>
             <column name="name"             value="Bender"/>
             <column name="group_id"         value="Robots"/>
+        </insert>
+
+        <insert tableName="position_cards">
+            <column name="id"               value="3"/>
+            <column name="is_shown_in_app"  value="true"/>
+            <column name="name"             value="Universal Home Helper"/>
+            <column name="group_id"         value="Home Appliances"/>
         </insert>
 
     </changeSet>

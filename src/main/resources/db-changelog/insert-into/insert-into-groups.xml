@@ -7,30 +7,30 @@
 >
     <changeSet id="insert-into-group" author="Sergei">
 
-        <insert tableName="group">
+        <insert tableName="groups">
             <column name="group_id"     value="Appliances"/>
             <column name="name"         value="Техника"/>
         </insert>
 
-        <insert tableName="group">
+        <insert tableName="groups">
             <column name="group_id"     value="Home Appliances"/>
             <column name="parent_id"    value="Appliances"/>
             <column name="name"         value="Бытовая Техника"/>
         </insert>
 
-        <insert tableName="group">
+        <insert tableName="groups">
             <column name="group_id"     value="Hoovers"/>
             <column name="parent_id"    value="Home Appliances"/>
             <column name="name"         value="Пылесоcы"/>
         </insert>
 
-        <insert tableName="group">
+        <insert tableName="groups">
             <column name="group_id"     value="Robots"/>
             <column name="parent_id"    value="Home Appliances"/>
             <column name="name"         value="Роботы"/>
         </insert>
 
-        <insert tableName="group">
+        <insert tableName="groups">
             <column name="group_id"     value="Washing Machines"/>
             <column name="parent_id"    value="Home Appliances"/>
             <column name="name"         value="Стиральные машны"/>

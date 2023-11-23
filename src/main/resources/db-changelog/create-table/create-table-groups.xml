@@ -5,14 +5,14 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
             http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd"
 >
-    <changeSet id="create-table-group" author="Sergei">
+    <changeSet id="create-table-groups" author="Sergei">
         <preConditions>
             <not>
-                <tableExists tableName="group"/>
+                <tableExists tableName="groups"/>
             </not>
         </preConditions>
 
-        <createTable tableName="group">
+        <createTable tableName="groups">
             <column name="group_id" type="VARCHAR(200)" >
                 <constraints primaryKey="true"/>
             </column>
@@ -23,14 +23,12 @@
                 <constraints nullable="false"/>
             </column>
         </createTable>
-    <!--/changeSet-->
 
-    <!--changeSet id="create-parent-group-constraint"  author="Sergei"-->
         <addForeignKeyConstraint baseColumnNames="parent_id"
-                                 baseTableName="group"
+                                 baseTableName="groups"
                                  constraintName="fk_parent_id"
                                  referencedColumnNames="group_id"
-                                 referencedTableName="group"/>
+                                 referencedTableName="groups"/>
     </changeSet>
 
 </databaseChangeLog>
