@@ -33,7 +33,13 @@
         <insert tableName="groups">
             <column name="group_id"     value="Washing Machines"/>
             <column name="parent_id"    value="Home Appliances"/>
-            <column name="name"         value="Стиральные машны"/>
+            <column name="name"         value="Стиральные машины"/>
+        </insert>
+
+        <insert tableName="groups">
+            <column name="group_id"     value="Garden Equipment"/>
+            <column name="parent_id"    value="Appliances"/>
+            <column name="name"         value="Садовая техника"/>
         </insert>
 
     </changeSet>

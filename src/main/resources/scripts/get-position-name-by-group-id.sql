@@ -6,7 +6,7 @@ WITH RECURSIVE subgroups AS (
     FROM
         groups g1
     WHERE
-        group_id = 'Washing Machines'
+        group_id = ?
     UNION
     SELECT
         g.group_id,
