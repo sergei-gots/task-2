@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+            http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd"
+>
+    <changeSet id="insert-into-position-cards" author="Sergei">
+
+        <insert tableName="position-cards">
+            <column name="id"               valueNumeric="1"/>
+            <column name="is_shown_in_app"  value="true"/>
+            <column name="name"             value="Vacuum-Cleaner"/>
+            <column name="group_id"         valueNumeric="Hoovers"/>
+        </insert>
+
+        <insert tableName="position-cards">
+            <column name="id"               valueNumeric="2"/>
+            <column name="name"             value="Bender"/>
+            <column name="group_id"         valueNumeric="Robots"/>
+        </insert>
+
+    </changeSet>
+</databaseChangeLog>

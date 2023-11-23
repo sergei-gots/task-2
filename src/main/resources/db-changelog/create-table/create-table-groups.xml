@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+            http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd"
+>
+    <changeSet id="create-table-groups" author="Sergei">
+        <preConditions>
+            <not>
+                <tableExists tableName="groups"/>
+            </not>
+        </preConditions>
+
+        <createTable tableName="groups">
+            <column name="group_id" type="VARCHAR(200)" >
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="parent_id" type="VARCHAR(200)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="name" type="VARCHAR(200)">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint baseColumnNames="parent_id"
+                                 baseTableName="groups"
+                                 constraintName="fk_parent_id"
+                                 referencedColumnNames="group_id"
+                                 referencedTableName="groups"/>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+            http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd"
+>
+    <changeSet id="create-table-position-cards" author="Sergei">
+        <preConditions>
+            <not>
+                <tableExists tableName="position_cards"/>
+            </not>
+        </preConditions>
+
+        <createTable tableName="position_cards">
+            <column name="id" type="VARCHAR(200)">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="is_shown_in_app" type="BOOLEAN" defaultValue="false">
+            </column>
+            <column name="name" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="group_id" type="VARCHAR(200)">
+                <constraints nullable="true" unique="true"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint baseColumnNames="group_id"
+                                 baseTableName="position_cards"
+                                 constraintName="fk_position_cards_group_id"
+                                 referencedColumnNames="group_id"
+                                 referencedTableName="groups"/>
+    </changeSet>
+
+</databaseChangeLog>
