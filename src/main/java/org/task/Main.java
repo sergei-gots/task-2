@@ -1,50 +1,12 @@
 package org.task;
 
-import org.task.task1.PositionCardDAO;
-import org.task.task1.PositionCardJDBC;
-
-import java.util.Optional;
+import org.task.task2.Task2;
 
 public class Main {
     public static void main(String[] args) {
 
-        task1();
-    }
-
-    public static void task1() {
-        PositionCardDAO positionCardDAO;
-        try {
-            positionCardDAO = new PositionCardJDBC();
-        }
-        catch (ClassNotFoundException e) {
-            return;
-        }
-
-        String groupId = "Hoovers";
-        Optional<String> nameOptional = positionCardDAO.getPositionNameByGroupId(groupId);
-        printTask1Result(groupId, nameOptional);
-
-
-        groupId = "Washing Machines";
-        nameOptional = positionCardDAO.getPositionNameByGroupId(groupId);
-        printTask1Result(groupId, nameOptional);
-
-        groupId = "Garden Equipment";
-        nameOptional = positionCardDAO.getPositionNameByGroupId(groupId);
-        printTask1Result(groupId, nameOptional);
-
-        groupId = "The group is not listed";
-        nameOptional = positionCardDAO.getPositionNameByGroupId(groupId);
-        printTask1Result(groupId, nameOptional);
-
-    }
-
-    private static void printTask1Result(String groupId, Optional<String> nameOptional) {
-        System.out.print("Task1: for the group_id=\"" + groupId);
-        System.out.println(
-                nameOptional.map(s -> "\" is a position_card with the name=\"" + s + "\" found.")
-                        .orElse("\" there is no a position_card within the group hierarchy.")
-        );
+        //Task1.task1();
+        Task2.task2();
     }
 
 }
