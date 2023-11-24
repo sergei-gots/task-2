@@ -1,5 +1,8 @@
 package org.task;
 
+import org.task.task1.PositionCardDAO;
+import org.task.task1.PositionCardJDBC;
+
 import java.util.Optional;
 
 public class Main {
