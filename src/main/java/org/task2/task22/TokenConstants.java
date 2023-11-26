@@ -1,4 +1,4 @@
-package org.task.task2;
+package org.task2.task22;
 
 public interface TokenConstants {
     /** Default expiration time

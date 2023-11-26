@@ -1,8 +1,8 @@
-package org.task.task2;
+package org.task2.task22;
 
 import io.jsonwebtoken.Claims;
 
-public class Task2 {
+public class Task22 {
 
     public static void task2() {
         String subject = "user123";

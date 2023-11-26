@@ -6,7 +6,7 @@ WITH RECURSIVE subgroups AS (
     FROM
         groups g1
     WHERE
-        group_id = ?
+            group_id = ?
     UNION
     SELECT
         g.group_id,
@@ -16,7 +16,7 @@ WITH RECURSIVE subgroups AS (
             INNER JOIN subgroups s ON g.group_id = s.parent_id
     WHERE (NOT (SELECT COUNT(*) FROM position_cards WHERE position_cards.group_id = s.group_id) = 1)
 ) SELECT
-    subgroups.group_id, subgroups.parent_id, pc.name
+      subgroups.group_id, subgroups.parent_id, pc.name
 FROM
     subgroups
-INNER JOIN position_cards pc ON pc.group_id = subgroups.group_id;
+        INNER JOIN position_cards pc ON pc.group_id = subgroups.group_id;

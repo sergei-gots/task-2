@@ -1,7 +1,6 @@
-package org.task.task2;
+package org.task2.task22;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
-
 
 import java.util.Date;
 
@@ -10,14 +9,14 @@ import java.security.Key;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-
-/** Server Class **/
+/** "Server" Class **/
 public class TokenProvider implements TokenConstants {
     private static final Key SIGNING_KEY = Keys.secretKeyFor(SignatureAlgorithm.HS256);
     private static final Map<String, Token> tokenCache = new ConcurrentHashMap<>();
 
     // Generate or retrieve a token from the cache
     public static Token getToken(String subject, long expirationMillis) {
+
         Token cachedToken = tokenCache.get(subject);
 
         if (cachedToken != null &&
@@ -25,12 +24,20 @@ public class TokenProvider implements TokenConstants {
             return cachedToken;
         }
 
-        Date expirationDate = new Date(System.currentTimeMillis() + expirationMillis);
-        String newTokenString = generateToken(subject, expirationDate);
-        Token newToken = new Token(newTokenString, subject, expirationDate);
-        tokenCache.put(subject, newToken);
-        return newToken;
+        synchronized (TokenProvider.class) {
+            // Recheck inside the synchronized block
+            cachedToken = tokenCache.get(subject);
+            if (cachedToken != null &&
+                    cachedToken.getExpirationTime().getTime() > System.currentTimeMillis() + REFRESH_NECESSITY_THRESHOLD) {
+                return cachedToken;
+            }
 
+            Date expirationDate = new Date(System.currentTimeMillis() + expirationMillis);
+            String newTokenString = generateToken(subject, expirationDate);
+            Token newToken = new Token(newTokenString, subject, expirationDate);
+            tokenCache.put(subject, newToken);
+            return newToken;
+        }
     }
 
     // Generate a token using the provided signing key
@@ -42,7 +49,7 @@ public class TokenProvider implements TokenConstants {
                 .compact();
     }
 
-    public static Token refresh(Token token, long expirationMillis) {
+    public static synchronized Token refresh(Token token, long expirationMillis) {
         try {
             Claims claims = parseToken(token);
             assert claims != null;

@@ -1,11 +1,11 @@
-package org.task.task2;
+package org.task2.task22;
 
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
 
-/** Client's class
+/** "Client's" class
  */
 public class TokenUtil implements TokenConstants {
     private static final Map<String, Token> tokenCache = new HashMap<>();
@@ -33,10 +33,10 @@ public class TokenUtil implements TokenConstants {
         return newToken;
     }
 
-
-
     public static Token refresh(Token token) {
-        if (token.getExpirationTime().getTime() < System.currentTimeMillis() - REFRESH_ALLOWANCE_THRESHOLD) {
+
+        if (token.getExpirationTime().getTime() <
+                System.currentTimeMillis() - REFRESH_ALLOWANCE_THRESHOLD) {
             return token;
         }
         Token newToken = TokenProvider.refresh(token, EXPIRATION_MILLIS);
