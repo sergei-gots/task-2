@@ -81,6 +81,7 @@ The compiled file will be stored in `target` folder as `task3.war`
 ## Run app 
 
 Before run be sure you have appropriated database properties in the file <a href="https://github.com/sergei-gots/task-2/blob/master/src/main/resources/liquibase.properties">/resources/liquibase.properties</a>
+To run the tomcat server and the /getCustomer application deployed out there use:
 ```
 java tomcat7:run
 ```
