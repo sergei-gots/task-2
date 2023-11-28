@@ -73,18 +73,18 @@ by multiple threads simultaneously.
 
 
 ## Compile app 
+Before build the application jar run be sure you have appropriated database properties in the file <a href="https://github.com/sergei-gots/task-2/blob/master/src/main/resources/liquibase.properties">/resources/liquibase.properties</a>
 ```
-mvn clean install
+mvn clean package
 ```
-The compiled file will be stored in `target` folder as `task3.war`
+The built jar will be stored in`/target` folder as `task2-1.0-SNAPSHOT-jar-with-dependencies.jar`
 
 ## Run app 
 
-Before run be sure you have appropriated database properties in the file <a href="https://github.com/sergei-gots/task-2/blob/master/src/main/resources/liquibase.properties">/resources/liquibase.properties</a>
 <br>
 To run the application use:
 ```
-java ...todo
+java -jar target/task2-1.0-SNAPSHOT-jar-with-dependencies.jar
 ```
 
 
